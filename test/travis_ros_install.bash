@@ -3,13 +3,13 @@
 #required packages
 sudo pip install catkin_pkg
 sudo pip install empy
-sudo pip install pyyaml
+pip install pyyaml
 sudo pip install rospkg
 
 #ros install
 cd ..
 git clone https://github.com/ShuroNakajima/ros_setup_scripts_Ubuntu14.04_server.git
-cd ./ros_setup_scripts_ubuntu14.04_server
+cd ./ros_setup_scripts_Ubuntu14.04_server
 bash ./step0.bash
 bash ./step1.bash
 
