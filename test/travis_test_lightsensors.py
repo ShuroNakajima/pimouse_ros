@@ -6,7 +6,7 @@ import time
 from pimouse_ros.msg import LightSensorValues
 
 class LightsensorTest(unittest.TestCase):
-	def SetUp(self):
+	def setUp(self):
 		self.count=0
 		rospy.Subscriber('/lightsensor', LightSensorValues, self.callback)
 		self.values=LightSensorValues()
