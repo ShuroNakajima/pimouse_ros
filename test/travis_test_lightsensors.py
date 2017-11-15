@@ -26,7 +26,7 @@ class LightsensorTest(unittest.TestCase):
 
 	def test_node_exist(self):
 		nodes=rosnode.get_node_names()
-		self.assetIn('/lightsensors',nodes,"node does not exist")
+		self.assertIn('/lightsensors',nodes,"node does not exist")
 
 	def test_get_value(self):
 		rospy.set_param('lightsensor_freq',10)
@@ -43,8 +43,8 @@ class LightsensorTest(unittest.TestCase):
 		time.sleep(2)
 		c_prev=self.count
 		time.sleep(3)
-		self.assetTrue(self.count < c_prev+4,"freq does not change")
-		self.assetFalse(self.count==c_prev,"subscri ber is stopeed")
+		self.assertTrue(self.count < c_prev+4,"freq does not change")
+		self.assertFalse(self.count==c_prev,"subscri ber is stopeed")
 
 if __name__=='__main__':
 	time.sleep(3)
