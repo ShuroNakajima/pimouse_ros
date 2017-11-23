@@ -40,7 +40,11 @@ class Motor():
             rospy.logerr("cannot write to rtmotor_raw_*")
 
     def callback_raw_freq(self,message):
+<<<<<<< HEAD
         self.set_raw_freq(message.left_hz.mesage.right_hz)
+=======
+        self.set_raw_freq(message.left_hz,message.right_hz)
+>>>>>>> d6cbd46ec07aca9728bf4c2e40b53db36fe8e103
 
     def callback_cmd_vel(self,message):
         forward_hz = 80000.0*message.linear.x/(9*math.pi)
