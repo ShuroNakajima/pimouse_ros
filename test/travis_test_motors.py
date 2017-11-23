@@ -15,6 +15,7 @@ class MotorTest(unittest.TestCase):
         rospy.wait_for_service('/timed_motion')
         on = rospy.ServiceProxy('/motor_on', Trigger)
         ret = on()
+        print("setUp")
         
     def file_check(self, dev, value, message):
         with open("/dev/" + dev, "r") as f:
@@ -35,6 +36,7 @@ class MotorTest(unittest.TestCase):
 
         self.file_check("rtmotor_raw_l0", m.left_hz, "wrong left value from motor_raw")
         self.file_check("rtmotor_raw_r0", m.right_hz, "wrong right value from motor_raw")
+        print("test_put_freq")
 
     def test_put_cmd_vel(self):
         pub = rospy.Publisher('/cmd_vel', Twist)
@@ -74,6 +76,9 @@ class MotorTest(unittest.TestCase):
         tm(-321, 654, 1500)
         with open("/dev/rtmotor0","r") as f:
             data = f.readline()
+            print("test_put_value_timed")
+            print(data)
+            print("test_put_value_timed2")
             self.assertEqual(data, "-321 654 1500\n","value does not written to rtmotor0")
 
 if __name__=='__main__':
