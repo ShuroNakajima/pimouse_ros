@@ -16,7 +16,7 @@ def recv_buzzer(data):
 	write_freq(data.data)
 
 def exec_music(goal):
-        r = MusicResutl()
+        r = MusicResult()
         fb = MusicFeedback()
 
         for i, f in enumerate(goal.freqs):
