@@ -59,8 +59,10 @@ class Motor():
         self.set_raw_freq(forward_hz-rot_hz, forward_hz+rot_hz)
         self.using_cmd_vel = True
         self.last_time = rospy.Time.now()
-        print(forward_hz-rot_hz)
-        print(forward_hz+rot_hz)        
+        rospy.logerr("left")
+        rospy.logerr(forward_hz-rot_hz)
+        rospy.logerr("right")
+        rospy.logerr(forward_hz+rot_hz)        
 
     def callback_on(self, message):
         return self.onoff_response(True)
