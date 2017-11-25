@@ -44,9 +44,6 @@ class Motor():
         except:
             rospy.logerr("cannot write to rtmotor_raw_*")
 
-        print(left_hz)
-        print(right_hz)            
-
     def onoff_response(self, onoff):
         d = TriggerResponse()
         d.success = self.set_power(onoff)
@@ -62,6 +59,8 @@ class Motor():
         self.set_raw_freq(forward_hz-rot_hz, forward_hz+rot_hz)
         self.using_cmd_vel = True
         self.last_time = rospy.Time.now()
+        print(forward_hz-rot_hz)
+        print(forward_hz+rot_hz)        
 
     def callback_on(self, message):
         return self.onoff_response(True)
