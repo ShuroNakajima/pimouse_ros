@@ -21,6 +21,7 @@ if __name__=='__main__':
 
 	freq=get_freq()
 	rate=rospy.Rate(freq)
+        
 	while not rospy.is_shutdown():
 		try:
 			with open(devfile,'r') as f :
